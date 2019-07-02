@@ -5,8 +5,8 @@ Resources:
   CDDemoLambda:
     Type: "AWS::Serverless::Function"
     Properties:
-      Handler: app.lambda_handler
-      Runtime: nodejs10.x
+      Handler: app.emailHandler
+      Runtime: nodejs8.10
       CodeUri: ./hello-world
       Description: "Lambda function for CD Demo"
       MemorySize: 128
@@ -16,8 +16,8 @@ Resources:
         getAZsAPI:
           Type: Api
           Properties:
-            Path: /hello-world
-            Method: get
+            Path: /email
+            Method: post
       Environment:
         Variables:
           REGION: us-east-1
